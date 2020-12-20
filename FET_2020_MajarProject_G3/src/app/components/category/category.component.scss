@@ -1,0 +1,21 @@
+img
+{
+    height: 200px;
+    
+}
+a{ 
+    color: red;
+}
+.card:hover
+{
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+
+}
+
+.row
+{
+    padding-top: 40px;
+    padding-left: 40px;
+}

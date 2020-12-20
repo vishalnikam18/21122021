@@ -1,0 +1,23 @@
+.card
+{
+    margin: 5em;
+    margin-left: 18vw;
+    padding: 1em;
+    width : 18rem;
+}
+
+
+.row
+{
+    background-color: blanchedalmond;
+}
+$breakpoint-tablet: 450px;
+@media (max-width: $breakpoint-tablet)
+{
+    .card{
+        margin : 3em;
+        padding: 2em;
+         width : 20rem;
+    }
+    
+}

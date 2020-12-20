@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>{{title}}</h1>
+            <hr />
+            <div class="signup-form">
+                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                     <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label>Full Name <span class="error">*</span></label>
+                            </div>
+                            <div class="col-md-8">
+                                <input formControlName="fullName" class="form-control" placeholder="Enter your Full Name" maxlength="15" />
+                                <small class="error" *ngIf="validForm.fullName.invalid && (validForm.fullName.dirty || validForm.fullName.touched)">
+                                    <div *ngIf="validForm.fullName.hasError('required')">This field is required.</div>
+                                    <div *ngIf="validForm.password.errors.minlength">Name Should be atleast of 4 character.</div>
+                                </small>
+                              
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label>E-Mail <span class="error">*</span></label>
+                            </div>
+                            <div class="col-md-8">
+                                <input formControlName="email" class="form-control" placeholder="Enter email ID" (blur)="checkEmail($event)" />
+                                <small class="error alert-danger" *ngIf="validForm.email.invalid && (validForm.email.dirty || validForm.email.touched)">
+                                    <div *ngIf="validForm.email.hasError('required')">This field is required.</div>
+                                    <div *ngIf="validForm.email.hasError('email')">Enter valid email address.</div>
+                                </small>
+                                <span class="form-group text-centre" [ngClass]="greenmsg==true ? 'correct': 'error'">
+                                    {{msg}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label>Password <span class="error">*</span></label>
+                            </div>
+                            <div class="col-md-8">
+                                <input formControlName="password" type="password" name="userPassword" class="form-control" placeholder="Enter the password" maxlength="12"/>
+                                <small class="error alert-danger" *ngIf="validForm.password.invalid && (validForm.password.dirty || validForm.password.touched)">
+                                    <div *ngIf="validForm.password.hasError('required')">This field is required.</div>
+                                   
+                                    <div *ngIf="validForm.password.invalid">
+                                        Password should be at least 8 characters long and atmost 12 character<br>
+                                        one Alphabet character <br>
+                                        one Numerical value and<br>
+                                        one special character.
+                                    </div>
+                                   
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label>Confirm Password <span class="error">*</span> </label>
+                            </div>
+                            <div class="col-md-8">
+                                <input formControlName="passconf" type="password" class="form-control" placeholder="Re-enter the password"/>
+                                <small class="error" *ngIf="validForm.passconf.invalid && (validForm.passconf.dirty || validForm.passconf.touched)">
+                                    <div *ngIf="validForm.passconf.hasError('required')">This field is required.</div>
+                                </small>
+                                <small class="error" *ngIf="signupForm.errors?.passwordmatch && (signupForm.dirty || signupForm.touched)">
+                                    Password and confirm password must be match.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary">Submit</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="reset" class="btn btn-danger" [disabled]="signupForm.invalid">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
