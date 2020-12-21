@@ -1,0 +1,91 @@
+body{
+    background-color: sienna;
+  }
+  p {
+    font-family: Lato;
+    color: crimson;
+  }
+  span
+  {
+    color:red;
+  }
+  h1
+  {
+    color: rgb(224, 11, 3);
+  }
+  .content{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2em;
+    margin-top: 10%;
+  }
+  .flex-container{
+    display:flex;
+    width:100%;
+  }
+  
+  .flex-center{
+    align-items: center;
+    justify-content: center;
+  }
+  /* mat-card-content{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+  } */
+  
+  .content1{
+  
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .score{
+    margin-top:.5em;
+    margin-left:2em;
+    font-size:1.5em
+  }
+  
+  .content2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .fa{
+    cursor:pointer;
+    font-size:5em;
+  }
+  
+  .selectedWeapon{
+    color: red;
+    font-size: 25px;
+  }
+
+  .btn-h {
+    size: 50px;
+  }
+  mat-card {
+    border: solid;
+    background-color:red($color: #836d6d);
+    box-shadow: slategray;
+  }
+  .heading{
+    width: 100%;
+    text-align: center;
+  }
+  @media (max-width: 450px) { 
+    .content{
+      display:block;
+      grid-template-columns: 1fr 1fr;
+      
+      margin-top: 10%;
+    }
+    .content1{
+  
+      display:block;
+      grid-template-columns: 2fr 1fr;
+    }
+    .content2{
+      display: block;
+      grid-template-columns: repeat(3, 1fr);
+    }
+   }

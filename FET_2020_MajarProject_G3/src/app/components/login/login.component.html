@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>{{title}}</h1>
+            <hr />
+            <div class="login-form">
+                <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+                     
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label>E-Mail <span class="error">*</span></label>
+                            </div>
+                            <div class="col-md-8">
+                                <input 
+                                    formControlName="email" 
+                                    class="form-control" 
+                                    placeholder="Enter the Registered Email ID"/>
+                                <small class="error alert-danger" *ngIf="validForm.email.invalid && (validForm.email.dirty || validForm.email.touched)">
+                                    <div *ngIf="validForm.email.hasError('required')">This field is required.</div>
+                                    <div *ngIf="validForm.email.hasError('email')">Enter valid email address.</div>
+                                </small>
+                            </div>
+                           
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label>Password <span class="error">*</span></label>
+                            </div>
+                            <div class="col-md-8">
+                                <input formControlName="password" type="password" class="form-control" placeholder="Enter the password"/>
+                                <small class="error alert-danger" *ngIf="validForm.password.invalid && (validForm.password.dirty || validForm.password.touched)">
+                                    <div *ngIf="validForm.password.hasError('required')">This field is required.</div>
+                                </small>
+                                <span class="form-group text-centre" style="color:tomato">
+                                    {{msg}}
+                                  </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                  
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </form>
+                
+                    
+                    <span class="psw">Forgot <a href="/forgetpwd">password?</a>
+                      <br>Register <a href="/signUp">New User?</a>
+                    </span>
+                  
+            </div>
+        </div>
+    </div>
+</div>

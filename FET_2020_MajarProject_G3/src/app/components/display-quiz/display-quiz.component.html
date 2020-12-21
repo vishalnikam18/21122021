@@ -1,0 +1,22 @@
+
+
+ <div class="row text-center">
+ 
+    
+    <div *ngFor="let tut of current" class="col-sm-4">
+ 
+      <form>
+        <div class="card">
+          <div class="card-body">
+         
+          <h4  id="quizname"  name="quizname" class="card-title ">
+            {{tut.quizname}}
+          </h4>
+          <a class="btn btn-success" (click)="quizeRounting(tut.id)">Attempt Quiz</a>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  

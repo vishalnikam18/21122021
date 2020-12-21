@@ -1,0 +1,51 @@
+
+
+<div class="container-fluid" *ngIf="userRoleId==2">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <img src="../../assets/images/icon.jpg" class="rounded-circle" alt="Image" width="304" height="236"> 
+      <h2>Hello {{name}}</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="text"><a class="text-uppercase" routerLink="/dashboard/search"><b><i>Search Quiz</i></b></a></li><br>
+        <li class="text"><a class="text-uppercase" routerLink="/dashboard/categories"><b> <i>Quizes</i></b></a></li><br>
+        <li class="text"><a class="text-uppercase" routerLink="/dashboard/games"><b><i>Games</i></b></a></li>
+        <li class="text"><a class="text-uppercase" routerLink="/dashboard/favList"><b><i>Favourite </i></b></a></li>
+      </ul>
+
+    </div>
+
+    <div class="col-sm-9">
+      <div class="sidesection">
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+
+<div class="container-fluid" *ngIf="userRoleId==1">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <img src="../../assets/images/icon.jpg" class="rounded-circle" alt="Image" width="304" height="236"> 
+      <h2>Hello {{name}}</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="text"><a class="text-uppercase" routerLink="/dashboard/categories"><h3><b><i>Category</i></b></h3> </a></li>
+        <li class="text"><a class="text-uppercase" routerLink="/dashboard/add"><h3><b><i>Create Quiz</i></b></h3></a></li>
+        <li class="text"><a class="text-uppercase" routerLink="/dashboard/chart"><h3><b><i>Chart</i></b></h3></a></li>
+      
+      </ul>
+
+    </div>
+
+    <div class="col-sm-9">
+      <div class="sidesection">
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+
+    
+  </div>
+</div>
