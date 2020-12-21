@@ -1,0 +1,209 @@
+<div>
+
+  
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <form #addQuestionForm="ngForm">
+          <div class="form-group">
+            <label for="Quizname"><b>Quizname</b></label>
+  
+            <input
+              type="text"
+              name="quizname"
+              class="form-control"
+              [(ngModel)]="quizname"
+              disabled
+            />
+          </div>
+  
+          <div class="form-group">
+            <label for="type"><b> Type</b> </label>
+            <select name="type" class="form-control" [(ngModel)]="que.type">
+              <option *ngFor="let i of type" value="{{ i.type }}">
+                {{ i.type }}
+              </option>
+            </select>
+          </div>
+  
+          <div class="form-group">
+            <label for="question"><b> Question  </b></label>
+            <input
+              type="text"
+              class="form-control"
+              id="question"
+              placeholder="question"
+              required
+              [(ngModel)]="que.question"
+              name="question"
+              #question="ngModel"
+            />
+            <div
+              [hidden]="question.valid || question.pristine"
+              class="alert alert-danger"
+            >
+              Question is required
+            </div>
+          </div>
+          <div *ngIf="que.type == 'MCQ'">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="option1"
+                placeholder="option1"
+                required
+                [(ngModel)]="que.option1"
+                name="option1"
+                #option1="ngModel"
+              />
+              <input
+                type="radio"
+                [(ngModel)]="que.answer"
+                value="{{ que.option1 }}"
+                name="option"
+              />&nbsp;&nbsp;
+              <label for="option1"><b> Option 1 </b></label>
+              <div
+                [hidden]="option1.valid || option1.pristine"
+                class="alert alert-danger"
+              >
+                option1 is required
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="option2"
+                placeholder="option2"
+                required
+                [(ngModel)]="que.option2"
+                name="option2"
+                #option2="ngModel"
+              />
+              <input
+                type="radio"
+                [(ngModel)]="que.answer"
+                value="{{ que.option2 }}"
+                name="option"
+              />&nbsp;&nbsp;
+              <label for="option2"><b>Option 2 </b> </label>
+              <div
+                [hidden]="option2.valid || option2.pristine"
+                class="alert alert-danger"
+              >
+                option2 is required
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="option3"
+                placeholder="option3"
+                required
+                [(ngModel)]="que.option3"
+                name="option3"
+                #option3="ngModel"
+              />
+  
+              <input
+                type="radio"
+                [(ngModel)]="que.answer"
+                value="{{ que.option3 }}"
+                name="option"
+              />&nbsp;&nbsp;
+              <label for="option3"><b> Option 3 </b></label>
+              <div
+                [hidden]="option3.valid || option3.pristine"
+                class="alert alert-danger"
+              >
+                option3 is required
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="option4"
+                placeholder="option4"
+                required
+                [(ngModel)]="que.option4"
+                name="option4"
+                #option4="ngModel"
+              />
+              <input
+                type="radio"
+                [(ngModel)]="que.answer"
+                value="{{ que.option4 }}"
+                name="option"
+              />&nbsp;&nbsp;
+              <label for="option4"><b> Option 4</b> </label>
+              <div
+                [hidden]="option4.valid || option4.pristine"
+                class="alert alert-danger"
+              >
+                option4 is required
+              </div>
+            </div>
+          </div>
+  
+          <div *ngIf="que.type == 'Descriptive'">
+            <div class="form-group">
+              <input
+                type="radio"
+                [(ngModel)]="que.answer"
+                value="{{ que.option1 }}"
+                name="option"
+                checked
+              />
+              <label for="option1">
+                <textarea
+                  id="option1"
+                  name="w3review"
+                  placeholder=" "
+                  [(ngModel)]="que.option1"
+                  name="option1"
+                  #option="ngModel"
+                  rows="4"
+                  cols="50"
+                ></textarea>
+              </label>
+  
+              <div
+                [hidden]="option.valid || option.pristine"
+                class="alert alert-danger"
+              >
+                option1 is required
+              </div>
+            </div>
+          </div>
+  
+          <div class="btn-group btn-group-sm">
+            <div class="col-md-3"> 
+              <button
+              type="button"
+              class="btn btn-dark"
+              (click)="addQuestion()"
+              [disabled]="!addQuestionForm.form.valid"
+            >
+            <b>Add </b> 
+            </button>
+            </div>
+          </div>  
+          <div class="btn-group btn-group-sm">
+            <div class="col-md-3">
+              <button (click)="btnClick()" class="btn btn-dark"><b>Exit </b> </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div *ngIf="submitted">
+        <app-add-questions [quizname]="que.quizname"></app-add-questions>
+      </div>
+    </div>
+  </div>
+  
